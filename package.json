@@ -1,0 +1,35 @@
+{
+  "name": "hytteadmin",
+  "version": "2.0.0-alpha",
+  "description": "Cabin management and publishing system for cabins in National Hiking Database",
+  "main": "coffee/server.coffee",
+  "scripts": {
+    "start": "supervisor -w coffee -- coffee/server.coffee",
+    "test": "SILENT=true mocha -b -c --check-leaks test/suite.coffee -R progress -r coffee-script -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Turistforeningen/hytteadmin.git"
+  },
+  "keywords": [
+    "cabin",
+    "hiking",
+    "trekking",
+    "opendata",
+    "norway"
+  ],
+  "author": "Hans Kristian Flaatten",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Turistforeningen/hytteadmin/issues"
+  },
+  "homepage": "https://github.com/Turistforeningen/hytteadmin",
+  "dependencies": {
+    "express": "~3.4.4",
+    "supervisor": "~0.5.6",
+    "mocha": "~1.14.0",
+    "hjs": "0.0.6",
+    "coffee-script": "~1.6.3",
+    "jade": "~0.35.0"
+  }
+}
