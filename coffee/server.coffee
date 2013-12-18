@@ -2,54 +2,67 @@
 
 path   = require 'path'
 Server = require('hapi').Server
-pages  = require './pages'
+site   = {}
 
 internals = {}
 
-view = (viewName) ->
-  (request, reply) ->
-    reply.view(viewName, { title: viewName })
+internals.getIndex = (request, reply) ->
+  return reply.redirect '/login' if not request.auth.isAuthenticated
+  reply.redirect '/list'
 
-getPages = (request, reply) ->
-  reply.view('index', { pages: Object.keys(pages.getAll()), title: 'All pages' })
+internals.allLogin = (request, reply) ->
+  return reply.redirect '/' if request.auth.isAuthenticated
 
-getPage = (request, reply) ->
-  reply.view('page', { page: pages.getPage(request.params.page), title: request.params.page })
+  if request.method is 'post'
+    if request.payload?.username and request.payload?.password
+      if request.payload.username is 'foo' and request.payload.password is 'bar'
+        request.auth.session.set id: 0, name: 'foo', password: 'bar'
+        return reply.redirect '/'
+      else
+        error = 'Invalid username or password'
+    else
+      error = 'Missing username or password'
 
-createPage = (request, reply) ->
-  pages.savePage(request.payload.name, request.payload.contents)
-  reply.view('page', { page: pages.getPage(request.payload.name), title: 'Create page' })
+  reply.view 'login', {site: site, title: 'Login', error: error}, {layout: false}
 
-showEditForm = (request, reply) ->
-  reply.view('edit', { page: pages.getPage(request.params.page), title: 'Edit: ' + request.params.page })
+internals.getLogout = (request, reply) ->
+  request.auth.session.clear()
+  reply.redirect '/'
 
-updatePage = (request, reply) ->
-  pages.savePage(request.params.page, request.payload.contents)
-  reply.view('page', { page: pages.getPage(request.params.page), title: request.params.page })
+internals.getList = (request, reply) ->
+  reply.view 'list', site: site, title: 'List'
+
+internals.getStatic =
+  directory:
+    path: path.join(__dirname, '../', 'static')
+    redirectToSlash: true
 
 internals.main = () ->
-  options = {
-    views: {
-      engines: { html: 'handlebars' },
-      path: path.join(__dirname, '../views'),
-      layout: true,
-      partialsPath: path.join(__dirname, '../views', 'partials')
-    },
-    state: {
-      cookies: {
-        failAction: 'ignore'
-      }
-    }
-  }
+  options =
+    views:
+      engines:
+        html: 'handlebars'
+      path: path.join(__dirname, '../', 'views')
+      layout: true
+      partialsPath: path.join(__dirname, '../', 'views', 'partials')
+      helpersPath: path.join(__dirname, '../', 'views', 'helpers')
+    auth:
+      scheme: 'cookie'
+      password: 'secret'
+      cookie: 'a'
+      redirectTo: '/login'
+      isSecure: false
 
   server = new Server(8080, options)
-  server.route({ method: 'GET', path: '/', handler: getPages })
-  server.route({ method: 'GET', path: '/pages/{page}', handler: getPage })
-  server.route({ method: 'GET', path: '/create', handler: view('create') })
-  server.route({ method: 'POST', path: '/create', handler: createPage })
-  server.route({ method: 'GET', path: '/pages/{page}/edit', handler: showEditForm })
-  server.route({ method: 'POST', path: '/pages/{page}/edit', handler: updatePage })
-  server.start()
+  server.route [
+    { method: 'GET', path: '/'      , config: { handler: internals.getIndex , auth: { mode: 'try' }}}
+    { method: '*'  , path: '/login' , config: { handler: internals.allLogin , auth: { mode: 'try' }}}
+    { method: 'GET', path: '/logout', config: { handler: internals.getLogout, auth: true }}
+    { method: 'GET', path: '/list'  , config: { handler: internals.getList  , auth: true }}
+    { method: 'GET', path: '/static/{path*}'  , handler: internals.getStatic }
+  ]
+  server.start () ->
+    console.log 'Server is running...'
 
 internals.main()
 
