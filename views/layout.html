@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{{title}}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="//netdna.bootstrapcdn.com/bootswatch/2.1.1/readable/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            padding-top: 60px;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>{{title}}</title>
+
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/static/css/main.css" rel="stylesheet">
 </head>
 <body>
-    {{> nav}}
-    <div class="container">
-        {{{ content }}}
-    </div>
-    <hr />
-    <div class="container">
-        <footer id="footer">
-            {{> footer}}
-        </footer>
-    </div>
+  {{> nav}}
+  <div class="container">
+    {{{ content }}}
+  </div>
+  <hr />
+  <div class="container">
+    <footer id="footer">
+      {{> footer}}
+    </footer>
+  </div>
 </body>
 </html>

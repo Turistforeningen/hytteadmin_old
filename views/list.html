@@ -1,0 +1,9 @@
+<h3>{{ title }}</h3>
+<p>foobar {{{ foo "bar" "baz" }}}</p>
+
+{{#glob "Users"}}
+  {{#each this}}
+    <p>{{name}}</p>
+  {{/each}}
+{{/glob}}
+
