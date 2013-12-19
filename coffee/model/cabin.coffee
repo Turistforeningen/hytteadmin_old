@@ -21,7 +21,7 @@ data =
   '52407fb375049e5615000296': 'Vardadalsbu'
   '52407fb375049e56150002b3': 'Solrenningen'
   '52407fb375049e561500024e': 'Stavali'
-  '52407fb375049e5615000304': 'Vending Turisthytte'
+  '52407fb375049e5615000304': 'Vending Thytte'
   '52407fb375049e5615000460': 'Åsedalen'
   '52407fb375049e5615000346': 'Kiellandbu'
   '52407fb375049e5615000158': 'Breidablik'
