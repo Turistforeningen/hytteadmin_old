@@ -4,7 +4,7 @@
   "description": "Cabin management and publishing system for cabins in National Hiking Database",
   "main": "coffee/server.coffee",
   "scripts": {
-    "start": "supervisor -w . -e 'node|js|coffee|litcoffee|css|html' -- coffee/server.coffee",
+    "start": "supervisor -w 'coffee,views' -e 'coffee|html|js' -- coffee/server.coffee",
     "test": "SILENT=true mocha -b -c --check-leaks test/suite.coffee -R progress -r coffee-script -w"
   },
   "repository": {
