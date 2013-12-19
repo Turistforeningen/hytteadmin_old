@@ -1,0 +1,88 @@
+<form class="form-horizontal" role="form">
+
+  <div class="form-group">
+    <div class="col-sm-10 col-sm-offset-2">
+      <h3>Beskrivelse <small>beskrivelse av hytten</small></h3>
+    </div>
+  </div>
+
+  {{#formgroup "Navn" 4}}
+    {{#forminput "navn" id "text" "Hyttenavn"}}{{cabin.navn}}{{/forminput}}
+  {{/formgroup}}
+
+  {{#formgroup "Alt. navn" 4}}
+    {{#each cabin.navn_alt}}
+      <div class="input-group form-control-static">
+        <span class="input-group-addon">{{ @index }}</span>
+        {{#forminput "navn_alt[]" id "text" "Alternativt navn"}}{{ this }}{{/forminput}}
+      </div>
+    {{else}}
+      <div class="input-group form-control-static">
+        <span class="input-group-addon">0.</span>
+        {{#forminput "navn_alt[]" id "text" "Alternativt navn"}}{{/forminput}}
+      </div>
+    {{/each}}
+  {{/formgroup}}
+
+  {{#formgroup "Beskrivelse"}}
+    {{#formtext "beskrivelse" id 20}}{{{ cabin.beskrivelse }}}{{/formtext}}
+  {{/formgroup}}
+
+  {{#formgroup "Adkomst sommer"}}
+    {{#formtext "adkomst_sommer" id 5}}{{{ cabin.adkomst.sommer }}}{{/formtext}}
+  {{/formgroup}}
+
+  {{#formgroup "Adkomst vinter"}}
+    {{#formtext "adkomst_vinter" id 5}}{{{ cabin.adkomst.vinter }}}{{/formtext}}
+  {{/formgroup}}
+
+  <div class="form-group">
+    <div class="col-sm-10 col-sm-offset-2">
+      <h3>Geografi <small>geografisk informasjon</small></h3>
+    </div>
+  </div>
+
+  {{#formgroup "SSR ID" 1}}
+    <p class="form-control-static">{{ cabin.ssr_id }}</p>
+  {{/formgroup}}
+
+  {{#formgroup "Kommune" 2}}
+    <p class="form-control-static">{{ cabin.kommune }}</p>
+  {{/formgroup}}
+
+  {{#formgroup "Fylke" 2}}
+    <p class="form-control-static">{{ cabin.fylke }}</p>
+  {{/formgroup}}
+
+  {{#formgroup "Koordinater"}}
+    <div class="row">
+      {{#each cabin.geojson.coordinates}}
+        <div class="col-xs-3">
+          <span class="form-control">{{ this }}</span>
+        </div>
+      {{/each}}
+    </div>
+  {{/formgroup}}
+
+  <div class="form-group">
+    <div class="col-sm-10 col-sm-offset-2">
+      <h3>Teknisk <small>teknsikse detaljer</small></h3>
+    </div>
+  </div>
+
+  {{#formgroup "Lisens" 2}}
+    {{{selectLicense cabin.lisens}}}
+  {{/formgroup}}
+
+  {{#formgroup "Status" 2}}
+    {{{selectStatus cabin.status}}}
+  {{/formgroup}}
+
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-primary">Lagre</button>
+    </div>
+  </div>
+</form>
+

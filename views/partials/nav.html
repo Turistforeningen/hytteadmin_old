@@ -7,16 +7,22 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Project name</a>
+      <a class="navbar-brand" href="/">{{ site.title }}</a>
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/">Home</a></li>
-        <li><a href="/">Pages</a></li>
-        <li><a href="/create">Create</a></li>
-        {{#if page}}
-        <li><a href="/pages/{{page.name}}/edit">Edit Page</a></li>
-        {{/if}}
+        {{! <li class="active"><a href="#">Foo</a></li> }}
+        {{! <li><a href="#">Bar</a></li> }}
+        {{! <li><a href="#">Baz</a></li> }}
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ user.name }}<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Profil</a></li>
+            <li><a href="/logout">Logg ut</a></li>
+          </ul>
+        </li>
       </ul>
     </div><!--/.nav-collapse -->
   </div>
