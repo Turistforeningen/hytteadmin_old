@@ -19,3 +19,11 @@ exports.getCabin = (request, reply) ->
       cabin: data
       title: 'Endre hytte'
 
+exports.getImage = (request, reply) ->
+  cabin.getCabin request.params.id, (err, data) ->
+    return reply().code(404) if err or not data?.bilder?[0]
+    cabin.getImage data.bilder[0], (err, data) ->
+      return reply().code(404) if err or not data?.img?[1]
+      stream = require('request')(data.img[1].url)
+      stream.once 'response', reply
+

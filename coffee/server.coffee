@@ -23,6 +23,7 @@ server = module.exports = new Server 8080,
 
 server.route [
   { method: 'GET', path: '/'      , config: { handler: site.getIndex  , auth: { mode: 'try' }}}
+  { method: 'GET', path: '/static/images/cabin/{id}', handler: cabin.getImage }
   { method: 'GET', path: '/static/{path*}'  , handler: site.getStatic }
   { method: '*'  , path: '/login' , config: { handler: auth.allLogin  , auth: { mode: 'try' }}}
   { method: 'GET', path: '/logout', config: { handler: auth.getLogout , auth: true }}
