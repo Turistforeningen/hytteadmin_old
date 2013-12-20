@@ -27,7 +27,7 @@ data =
   '52407fb375049e5615000158': 'Breidablik'
   '52407fb375049e56150002e8': 'Skålatårnet'
 
-exports.getCabins = ->
+exports.getCabins = (group) ->
   res = []
   for _id, navn of data
     res.push
@@ -38,6 +38,14 @@ exports.getCabins = ->
 
 exports.getCabin = (id, cb) ->
   url = "http://api.nasjonalturbase.no/steder/#{id}?api_key=dnt"
+  request url: url, json: true, (err, res, body) ->
+    if err or res.statusCode isnt 200 or not body
+      return cb new Error('Not Found')
+
+    cb null, body
+
+exports.getImage = (id, cb) ->
+  url = "http://api.nasjonalturbase.no/bilder/#{id}?api_key=dnt"
   request url: url, json: true, (err, res, body) ->
     if err or res.statusCode isnt 200 or not body
       return cb new Error('Not Found')
