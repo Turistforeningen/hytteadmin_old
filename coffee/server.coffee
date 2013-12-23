@@ -34,4 +34,6 @@ server.route [
 if not module.parent
   server.start () ->
     console.log 'Server is running...'
+else
+  module.exports = server
 
