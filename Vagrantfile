@@ -33,6 +33,9 @@ echo "export PORT_WWW=8080" >> /home/vagrant/.bashrc
 echo "export API_KEY=foobar" >> /home/vagrant/.bashrc
 echo "cd /vagrant" >> /home/vagrant/.bashrc
 
+chown vagrant:vagrant /home/vagrant/.nvm
+chown vagrant:vagrant /home/vagrant/tmp
+
 SCRIPT
 
 Vagrant.configure("2") do |config|
