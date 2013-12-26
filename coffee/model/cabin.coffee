@@ -1,5 +1,6 @@
 "use strict"
 
+cache = './cache'
 request = require 'request'
 
 data =

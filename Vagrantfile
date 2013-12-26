@@ -45,7 +45,7 @@ echo "\n\n" >> /home/vagrant/.bashrc
 echo "cd /vagrant" >> /home/vagrant/.bashrc
 
 chown vagrant:vagrant /home/vagrant/.nvm
-chown vagrant:vagrant /home/vagrant/tmp
+# chown vagrant:vagrant /home/vagrant/tmp
 
 SCRIPT
 
