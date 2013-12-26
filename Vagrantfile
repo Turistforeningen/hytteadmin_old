@@ -27,11 +27,21 @@ echo "PATH=$PATH:/vagrant/node_modules/.bin" >> /home/vagrant/.bashrc
 PATH=$PATH:/vagrant/node_modules/.bin
 cd /vagrant/ && npm install
 
+# Read secrets
+NTB_API_KEY=`cat ./secret/NTB_API_KEY`
+GA_API_PASSWORD=`cat ./secret/GA_API_PASSWORD`
+GA_API_USERNAME=`cat ./secret/GA_API_USERNAME`
+
 # Vagratnt Environment Varaibles
 echo "Setting environment variables..."
 echo "export NODE_ENV=development" >> /home/vagrant/.bashrc
 echo "export PORT_WWW=8080" >> /home/vagrant/.bashrc
-echo "export API_KEY=foobar" >> /home/vagrant/.bashrc
+echo "export NTB_API_KEY=$NTB_API_KEY" >> /home/vagrant/.bashrc
+echo "export GA_API_PASSWORD=$GA_API_PASSWORD" >> /home/vagrant/.bashrc
+echo "export GA_API_USERNAME=$GA_API_USERNAME" >> /home/vagrant/.bashrc
+echo "export DOTCLOUD_CACHE_REDIS_HOST=localhost" >> /home/vagrant/.bashrc
+echo "export DOTCLOUD_CACHE_REDIS_PORT=6379" >> /home/vagrant/.bashrc
+echo "\n\n" >> /home/vagrant/.bashrc
 echo "cd /vagrant" >> /home/vagrant/.bashrc
 
 chown vagrant:vagrant /home/vagrant/.nvm
