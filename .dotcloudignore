@@ -1,0 +1,17 @@
+.*swp
+
+.DS_Store
+.dotcloudignore
+.gitignore
+.jshintrc
+npm-debug.log
+README.md
+Vagrantfile
+
+.config/.ssh/
+.dotcloud/
+.git/
+node_modules/
+src/
+test/
+utils/
