@@ -5,9 +5,10 @@
 $script = <<SCRIPT
 
 # Update & Install
+apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
 echo 'Updating and installing ubuntu packages...'
 apt-get update
-apt-get install -y build-essential git curl
+apt-get install -y build-essential git curl redis-server
 
 # NodeJS via NVM
 echo "Installing Node Version Manager..."
