@@ -3,6 +3,8 @@
 cache = './cache'
 request = require 'request'
 
+api_key = process.env.NTB_API_KEY
+
 data =
   '52407fb375049e5615000034': 'Holmaskjer'
   '52407fb375049e5615000074': 'Alexander G.'
@@ -38,7 +40,7 @@ exports.getCabins = (group) ->
   res
 
 exports.getCabin = (id, cb) ->
-  url = "http://api.nasjonalturbase.no/steder/#{id}?api_key=dnt"
+  url = "http://api.nasjonalturbase.no/steder/#{id}?api_key=#{api_key}"
   request url: url, json: true, (err, res, body) ->
     if err or res.statusCode isnt 200 or not body
       return cb new Error('Not Found')
@@ -46,7 +48,7 @@ exports.getCabin = (id, cb) ->
     cb null, body
 
 exports.getImage = (id, cb) ->
-  url = "http://api.nasjonalturbase.no/bilder/#{id}?api_key=dnt"
+  url = "http://api.nasjonalturbase.no/bilder/#{id}?api_key=#{api_key}"
   request url: url, json: true, (err, res, body) ->
     if err or res.statusCode isnt 200 or not body
       return cb new Error('Not Found')
