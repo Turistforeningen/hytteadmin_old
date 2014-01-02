@@ -5,6 +5,9 @@ Research & Development project for management of cabin in Norwegian Trekking
 Database. The system is capable of reading exisitng cabins, updating them and
 saving the canges back into the Norwegian Trekking Database.
 
+![Viewing all cabins for
+group](https://raw.github.com/Turistforeningen/hytteadmin/master/static/images/promo.png)
+
 ## Development
 
 ### Install
