@@ -28,9 +28,9 @@ PATH=$PATH:/vagrant/node_modules/.bin
 cd /vagrant/ && npm install
 
 # Read secrets
-NTB_API_KEY=`cat ./secret/NTB_API_KEY`
-GA_API_PASSWORD=`cat ./secret/GA_API_PASSWORD`
-GA_API_USERNAME=`cat ./secret/GA_API_USERNAME`
+NTB_API_KEY=`cat ./env/NTB_API_KEY`
+GA_API_PASSWORD=`cat ./env/GA_API_PASSWORD`
+GA_API_USERNAME=`cat ./env/GA_API_USERNAME`
 
 # Vagratnt Environment Varaibles
 echo "Setting environment variables..."
