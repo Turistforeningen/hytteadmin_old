@@ -16,3 +16,4 @@ node_modules
 *.swp
 .vagrant/
 secret/
+env/
