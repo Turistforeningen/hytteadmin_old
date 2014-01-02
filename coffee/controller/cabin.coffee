@@ -12,7 +12,7 @@ exports.getList = (request, reply) ->
 
 exports.getCabin = (request, reply) ->
   cabin.getCabin request.params.id, (err, data) ->
-    return reply.redirect '/' if err
+    return reply().redirect '/' if err
     reply.view 'cabin',
       site: site
       user: request.auth.credentials
