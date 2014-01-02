@@ -17,3 +17,4 @@ test/
 utils/
 secret/
 env/
+static/images/cabin/*
