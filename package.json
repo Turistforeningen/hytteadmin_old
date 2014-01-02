@@ -29,7 +29,7 @@
     "supervisor": "~0",
     "mocha": "~1",
     "coffee-script": "~1",
-    "hapi": "~1",
+    "hapi": "spumko/hapi",
     "handlebars": "~1",
     "request": "~2"
   }
