@@ -32,10 +32,13 @@ server.route [
 ]
 
 server.ext 'onPreResponse', (request, next) ->
-  #console.log request.response() instanceof Error
-  #console.log request.path.substr 0, 21
-  #console.log request.response().isBoom
-  #console.log request.response()._code
+  if request.path.substr(0, 21) is '/static/images/cabin/'
+    if request.response() instanceof Error
+      id = request.path.replace('/static/images/cabin/', '')
+      return cabin.fetchImage(id, next) if /^[0-9a-f]{24}$/.test id
+    else
+      request._response.headers['content-type'] = 'image/jpeg'
+
   next()
 
 if not module.parent
