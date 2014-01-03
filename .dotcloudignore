@@ -1,20 +1,23 @@
-.*swp
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+*.swp
 
-.DS_Store
 .dotcloudignore
 .gitignore
-.jshintrc
-npm-debug.log
+LISENCE
 README.md
 Vagrantfile
 
-.config/.ssh/
-.dotcloud/
 .git/
-node_modules/
-src/
-test/
-utils/
-secret/
+.vagrant/
 env/
+node_modules/
 static/images/cabin/*
+src/
+

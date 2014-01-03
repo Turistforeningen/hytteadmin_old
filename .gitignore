@@ -6,15 +6,15 @@ lib-cov
 *.out
 *.pid
 *.gz
+*.swp
 
 pids
 logs
 results
 
-npm-debug.log
-node_modules
-*.swp
+node_modules/
 .vagrant/
 secret/
 env/
 static/images/cabin/*
+
