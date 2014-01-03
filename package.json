@@ -6,6 +6,7 @@
   "scripts": {
     "start": "supervisor -w 'coffee,views' -e 'coffee|html|js' -- coffee/server.coffee",
     "test": "SILENT=true mocha -b -c --check-leaks test/suite.coffee -R progress -r coffee-script -w",
+    "postinstall": "rm -rf src/* && coffee -o src/ -c coffee/",
     "test-drone": "node_modules/.bin/mocha test/suite.coffee -R spec -r coffee-script"
   },
   "repository": {
