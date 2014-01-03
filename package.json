@@ -30,7 +30,7 @@
     "supervisor": "~0",
     "mocha": "~1",
     "coffee-script": "~1",
-    "hapi": "spumko/hapi",
+    "hapi": "git://github.com/spumko/hapi.git#c6073f61aa0be6da77c0b99e554132bd3debfd8b",
     "handlebars": "~1",
     "request": "~2"
   }
