@@ -7,7 +7,6 @@ exports.scheme = (server, options) ->
   scheme = {}
 
   scheme.authenticate = (request, reply) ->
-    throw new Error()
     return reply boom.unauthorized('Unauthorized', 'cookie') if not request.state.session
     return reply null, credentials: request.state.session
 
