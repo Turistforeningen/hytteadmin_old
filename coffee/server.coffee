@@ -6,7 +6,8 @@ auth   = require './controller/auth'
 site   = require './controller/site'
 cabin  = require './controller/cabin'
 
-server = module.exports = new Server 8080,
+port = parseInt(process.env.PORT_WWW, 10) or 8080
+server = module.exports = new Server port,
   views:
     engines:
       html: 'handlebars'
