@@ -15,12 +15,22 @@ server = module.exports = new Server port,
     path: path.join(__dirname, '../', 'views')
     partialsPath: path.join(__dirname, '../', 'views', 'partials')
     helpersPath: path.join(__dirname, '../', 'views', 'helpers')
-  auth:
-    scheme: 'cookie'
-    password: 'secret'
-    cookie: 'a'
-    redirectTo: '/login'
-    isSecure: false
+  #auth:
+  #  cookie:
+  #    password: 'secret'
+  #    cookie: 'a'
+  #    redirectTo: '/login'
+  #    isSecure: false
+
+server.state 'session',
+  ttl: 24 * 60 * 60 * 1000
+  isSecure: true
+  path: '/'
+  encoding: 'base64json'
+  password: '620633670888786'
+
+server.auth.scheme 'cookie', auth.scheme
+server.auth.strategy 'default', 'cookie', true, foo: 'bar'
 
 server.route [
   { method: 'GET', path: '/'      , config: { handler: site.getIndex  , auth: { mode: 'try' }}}

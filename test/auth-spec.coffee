@@ -49,7 +49,7 @@ describe '/logout', ->
     h = "Cookie": cookie
     server.inject method: 'GET', url: '/logout', headers: h, (res) ->
       assert.equal res.raw.res.statusCode, 302
-      assert.equal res.raw.res._headers['set-cookie'][0].split(';')[0], 'a='
+      assert.equal res.raw.res._headers['set-cookie'][0].split(';')[0], 'session='
       assert /\/$/.test res.raw.res._headers.location
       done()
 
