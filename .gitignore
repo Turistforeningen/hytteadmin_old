@@ -19,3 +19,4 @@ env/
 static/images/cabin/*
 
 src/
+.DS_Store

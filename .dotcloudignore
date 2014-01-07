@@ -21,3 +21,4 @@ node_modules/
 static/images/cabin/*
 src/
 
+.DS_Store
