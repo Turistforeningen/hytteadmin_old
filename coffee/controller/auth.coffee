@@ -18,7 +18,6 @@ exports.scheme = (server, options) ->
 
   return scheme
 
-
 exports.allLogin = (request, reply) ->
   return reply().redirect '/' if request.auth.isAuthenticated
 
