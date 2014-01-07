@@ -24,7 +24,7 @@ server = module.exports = new Server port,
 
 server.state 'session',
   ttl: 24 * 60 * 60 * 1000
-  isSecure: true
+  isHttpOnly: true
   path: '/'
   encoding: 'base64json'
   password: '620633670888786'
