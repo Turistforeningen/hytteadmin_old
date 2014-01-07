@@ -39,7 +39,7 @@ server.route [
   { method: '*'  , path: '/login' , config: { handler: auth.allLogin  , auth: { mode: 'try' }}}
   { method: 'GET', path: '/logout', config: { handler: auth.getLogout , auth: true }}
   { method: 'GET', path: '/liste'  , config: { handler: cabin.getList  , auth: true }}
-  { method: 'GET', path: '/hytte/{id}'  , config: { handler: cabin.getCabin, auth: true }}
+  { method: 'GET', path: '/hytte/{id}/endre'  , config: { handler: cabin.getCabin, auth: true }}
 ]
 
 server.ext 'onPreResponse', (request, next) ->
