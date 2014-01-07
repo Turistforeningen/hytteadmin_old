@@ -44,11 +44,11 @@ server.route [
 
 server.ext 'onPreResponse', (request, next) ->
   if request.path.substr(0, 21) is '/static/images/cabin/'
-    if request.response() instanceof Error
+    if request.response instanceof Error
       id = request.path.replace('/static/images/cabin/', '')
       return cabin.fetchImage(id, next) if /^[0-9a-f]{24}$/.test id
     else
-      request._response.headers['content-type'] = 'image/jpeg'
+      request.response.headers['content-type'] = 'image/jpeg'
 
   next()
 
