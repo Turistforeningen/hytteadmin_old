@@ -35,7 +35,7 @@ server.auth.strategy 'default', 'cookie', true, foo: 'bar'
 server.route [
   { method: 'GET', path: '/'      , config: { handler: site.getIndex  , auth: { mode: 'try' }}}
   #{ method: 'GET', path: '/static/images/cabin/{id}', handler: cabin.getImage }
-  { method: 'GET', path: '/static/{path*}'  , handler: site.getStatic }
+  { method: 'GET', path: '/static/{path*}'  , config: { handler: site.getStatic , auth: false }}
   { method: '*'  , path: '/login' , config: { handler: auth.allLogin  , auth: { mode: 'try' }}}
   { method: 'GET', path: '/logout', config: { handler: auth.getLogout , auth: true }}
   { method: 'GET', path: '/liste'  , config: { handler: cabin.getList  , auth: true }}
