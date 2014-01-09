@@ -49,6 +49,10 @@ server.ext 'onPreResponse', (request, next) ->
       return cabin.fetchImage(id, next) if /^[0-9a-f]{24}$/.test id
     else
       request.response.headers['content-type'] = 'image/jpeg'
+  else if request.response.isBoom and request.response.output.statusCode is 401
+    # @TODO(starefossen) only redirect if accept-encoding is html
+    url = '/login?redirect=' + encodeURIComponent(request.raw.req.url)
+    request.response.output.headers['Location'] = url
 
   next()
 
