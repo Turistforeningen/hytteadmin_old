@@ -6,8 +6,6 @@ api:
   process: node src/server.js
   approot: .
   node_version: v0.10.24
-  app_url: http://hytteadmin-turistforeningen.dotcloud.com/
-  ntb_api_url: http://api.nasjonalturbase.no/
 cache:
   type: redis
 
