@@ -36,7 +36,8 @@ server.route [
   { method: 'GET', path: '/'      , config: { handler: site.getIndex  , auth: { mode: 'try' }}}
   { method: 'GET', path: '/static/{path*}'  , config: { handler: site.getStatic , auth: false }}
   { method: '*'  , path: '/login' , config: { handler: auth.allLogin  , auth: { mode: 'try' }}}
-  { method: '*'  , path: '/login/dnt', config: { handler: auth.getConnect, auth: {mode: 'try'}}}
+  { method: 'GET' , path: '/login/dnt', config: { handler: auth.getConnect, auth: {mode: 'try'}}}
+  { method: 'POST', path: '/login/dnt', config: { handler: auth.postConnect, auth: {mode: 'try'}}}
   { method: 'GET', path: '/logout', config: { handler: auth.getLogout , auth: true }}
   { method: 'GET', path: '/liste'  , config: { handler: cabin.getList  , auth: true }}
   { method: 'GET', path: '/hytte/{id}/endre'  , config: { handler: cabin.getCabin, auth: true }}

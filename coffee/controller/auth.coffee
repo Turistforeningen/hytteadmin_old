@@ -21,24 +21,24 @@ exports.scheme = (server, options) ->
 
   return scheme
 
+exports.postConnect = (request, reply) ->
+  return reply().redirect '/' if request.auth.isAuthneticated
+  return reply().redirect client.signon(process.env.APP_URL + 'login/dnt')
+
 exports.getConnect = (request, reply) ->
   return reply().redirect '/' if request.auth.isAuthneticated
+  return reply().code(422).location('/login?error=DNTC-501') if not request?.query?.data?
 
-  if request.method is 'post'
-    return reply().redirect client.signon(process.env.APP_URL + 'login/dnt')
-  else
-    return reply().redirect('/login?error=DNTC-501') if not request?.query?.data?
+  try
+    data = client.decryptJSON(request.query.data)
+  catch e
+    # @TODO(starefossen) check e and return appopriate error
+    return reply().code(422).location('/login?error=DNTC-502')
 
-    try
-      data = client.decryptJSON(request.query.data)
-    catch e
-      # @TODO(starefossen) check e and return appopriate error
-      return reply().redirect('/login?error=DNTC-502')
+  return reply().code(401).location('/login?error=DNTC-503') if not data.er_autentisert
 
-    return reply().redirect('/ligin?error=DNTC-503') if not data.er_autentisert
-
-    session = sherpa_id: data.sherpa_id, name: data.fornavn, email: data.epost
-    return reply().state('session', session).redirect '/'
+  session = sherpa_id: data.sherpa_id, name: data.fornavn, email: data.epost
+  return reply().state('session', session).redirect '/'
 
 exports.allLogin = (request, reply) ->
   return reply().redirect '/' if request.auth.isAuthenticated
