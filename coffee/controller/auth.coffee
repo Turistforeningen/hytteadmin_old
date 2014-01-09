@@ -25,7 +25,7 @@ exports.getConnect = (request, reply) ->
   return reply().redirect '/' if request.auth.isAuthneticated
 
   if request.method is 'post'
-    return reply().redirect client.signon(process.env.APP_URL + '/login/dnt')
+    return reply().redirect client.signon(process.env.APP_URL + 'login/dnt')
   else
     return reply().redirect('/login?error=DNTC-501') if not request?.query?.data?
 
