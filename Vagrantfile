@@ -48,7 +48,7 @@ echo "export DOTCLOUD_CACHE_REDIS_PORT=6379"             >> /home/vagrant/.bashr
 echo "\ncd /vagrant"                                     >> /home/vagrant/.bashrc
 
 chown vagrant:vagrant /home/vagrant/.nvm
-# chown vagrant:vagrant /home/vagrant/tmp
+chown vagrant:vagrant /home/vagrant/tmp
 
 SCRIPT
 
