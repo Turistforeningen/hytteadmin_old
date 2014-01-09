@@ -30,7 +30,6 @@ describe '/liste', ->
   it 'should redirect unauthenticated users to /login', (done) ->
     server.inject method: 'GET', url: '/liste', (res) ->
       assert.equal res.raw.res.statusCode, 401
-      console.log res.raw.res._headers.location
       done()
 
   it 'should display a list of cabins', (done) ->
