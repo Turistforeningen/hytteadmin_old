@@ -35,16 +35,17 @@ GA_API_USERNAME=`cat ./env/GA_API_USERNAME`
 
 # Vagratnt Environment Varaibles
 echo "Setting environment variables..."
-echo "export NODE_ENV=development" >> /home/vagrant/.bashrc
-echo "export PORT_WWW=8080" >> /home/vagrant/.bashrc
-echo "export NTB_API_KEY=$NTB_API_KEY" >> /home/vagrant/.bashrc
-echo "export DNT_CONNECT=$DNT_CONNECT" >> /home/vagrant/.bashrc
-echo "export GA_API_PASSWORD=$GA_API_PASSWORD" >> /home/vagrant/.bashrc
-echo "export GA_API_USERNAME=$GA_API_USERNAME" >> /home/vagrant/.bashrc
-echo "export DOTCLOUD_CACHE_REDIS_HOST=localhost" >> /home/vagrant/.bashrc
-echo "export DOTCLOUD_CACHE_REDIS_PORT=6379" >> /home/vagrant/.bashrc
-echo "\n\n" >> /home/vagrant/.bashrc
-echo "cd /vagrant" >> /home/vagrant/.bashrc
+echo "export NODE_ENV=development"                       >> /home/vagrant/.bashrc
+echo "export PORT_WWW=8080"                              >> /home/vagrant/.bashrc
+echo "export URL_WWW=http://localhost:8080/"             >> /home/vagrant/.bashrc
+echo "export NTB_API_KEY=$NTB_API_KEY"                   >> /home/vagrant/.bashrc
+echo "export NTB_API_URL=http://api.nasjonalturbase.no/" >> /home/vagrant/.bashrc
+echo "export DNT_CONNECT=$DNT_CONNECT"                   >> /home/vagrant/.bashrc
+echo "export GA_API_PASSWORD=$GA_API_PASSWORD"           >> /home/vagrant/.bashrc
+echo "export GA_API_USERNAME=$GA_API_USERNAME"           >> /home/vagrant/.bashrc
+echo "export DOTCLOUD_CACHE_REDIS_HOST=localhost"        >> /home/vagrant/.bashrc
+echo "export DOTCLOUD_CACHE_REDIS_PORT=6379"             >> /home/vagrant/.bashrc
+echo "\ncd /vagrant"                                     >> /home/vagrant/.bashrc
 
 chown vagrant:vagrant /home/vagrant/.nvm
 # chown vagrant:vagrant /home/vagrant/tmp
