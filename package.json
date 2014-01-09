@@ -27,11 +27,14 @@
   },
   "homepage": "https://github.com/Turistforeningen/hytteadmin",
   "dependencies": {
-    "supervisor": "~0",
-    "mocha": "~1",
     "coffee-script": "~1",
     "hapi": "git://github.com/spumko/hapi.git",
     "handlebars": "~1",
     "request": "~2"
+  },
+  "devDependencies": {
+    "mocha": "~1",
+    "supervisor": "~0",
+    "dnt-connect": "~1.0.0"
   }
 }
