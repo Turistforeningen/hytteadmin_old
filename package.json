@@ -30,11 +30,9 @@
     "coffee-script": "~1",
     "hapi": "git://github.com/spumko/hapi.git",
     "handlebars": "~1",
-    "request": "~2"
-  },
-  "devDependencies": {
+    "request": "~2",
+    "dnt-connect": "~1",
     "mocha": "~1",
-    "supervisor": "~0",
-    "dnt-connect": "~1.0.0"
+    "supervisor": "~0"
   }
 }
