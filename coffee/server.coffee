@@ -26,16 +26,63 @@ server.state 'session',
 server.auth.scheme 'cookie', auth.scheme
 server.auth.strategy 'default', 'cookie', true, foo: 'bar'
 
-server.route [
-  { method: 'GET', path: '/'      , config: { handler: site.getIndex  , auth: { mode: 'try' }}}
-  { method: 'GET', path: '/static/{path*}'  , config: { handler: site.getStatic , auth: false }}
-  { method: '*'  , path: '/login' , config: { handler: auth.allLogin  , auth: { mode: 'try' }}}
-  { method: 'GET' , path: '/login/dnt', config: { handler: auth.getConnect, auth: {mode: 'try'}}}
-  { method: 'POST', path: '/login/dnt', config: { handler: auth.postConnect, auth: {mode: 'try'}}}
-  { method: 'GET', path: '/logout', config: { handler: auth.getLogout , auth: true }}
-  { method: 'GET', path: '/liste'  , config: { handler: cabin.getList  , auth: true }}
-  { method: 'GET', path: '/hytte/{id}/endre'  , config: { handler: cabin.getCabin, auth: true }}
-]
+# Index
+server.route
+  method: 'GET'
+  path: '/'
+  config:
+    handler: site.getIndex
+    auth:
+      mode: 'try'
+
+# Auth
+server.route
+  method: 'GET'
+  path: '/static/{path*}'
+  config:
+    handler: site.getStatic
+    auth: false
+server.route
+  method: '*'
+  path: '/login'
+  config:
+    handler: auth.allLogin
+    auth:
+      mode: 'try'
+server.route
+  method: 'GET',
+  path: '/login/dnt'
+  config:
+    handler: auth.getConnect
+    auth:
+      mode: 'try'
+server.route
+  method: 'POST'
+  path: '/login/dnt'
+  config:
+    handler: auth.postConnect
+    auth:
+      mode: 'try'
+server.route
+  method: 'GET'
+  path: '/logout'
+  config:
+    handler: auth.getLogout
+    auth: true
+
+# Cabin
+server.route
+  method: 'GET'
+  path: '/liste'
+  config:
+    handler: cabin.getList
+    auth: true
+server.route
+  method: 'GET'
+  path: '/hytte/{id}/endre'
+  config:
+    handler: cabin.getCabin
+    auth: true
 
 server.ext 'onPreResponse', (request, next) ->
   if request.path.substr(0, 21) is '/static/images/cabin/'
