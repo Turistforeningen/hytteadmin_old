@@ -15,12 +15,6 @@ server = module.exports = new Server port,
     path: path.join(__dirname, '../', 'views')
     partialsPath: path.join(__dirname, '../', 'views', 'partials')
     helpersPath: path.join(__dirname, '../', 'views', 'helpers')
-  #auth:
-  #  cookie:
-  #    password: 'secret'
-  #    cookie: 'a'
-  #    redirectTo: '/login'
-  #    isSecure: false
 
 server.state 'session',
   ttl: 24 * 60 * 60 * 1000
