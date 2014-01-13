@@ -1,9 +1,11 @@
 "use strict"
 
-site = require '../model/config'
-cabin = require '../model/cabin'
+fs      = require 'fs'
 request = require 'request'
-fs = require 'fs'
+
+site    = require '../model/config'
+cabin   = require '../model/cabin'
+stats   = require '../model/statistics'
 
 exports.getList = (request, reply) ->
   cabin.getCabins '52407f3c4ec4a1381500025d', (err, data) ->
@@ -32,4 +34,17 @@ exports.fetchImage = (id, reply) ->
       stream = request data.img[1].url
       stream.once 'response', reply
       stream.pipe fs.createWriteStream('static/images/cabin/' + id)
+
+exports.getStatistics = (request, reply) ->
+  cabin.getCabin request.params.id, (err, cabin) ->
+    if /^application\/json/.test request.headers.accept
+      stats.getCabinViews cabin.url, (err, data) ->
+        reply data
+    else
+      reply.view 'cabin/statistics',
+        site: site
+        user: request.auth.credentials
+        cabin: cabin
+        title: 'Statistikk'
+        scripts: ['/static/js/cabin/statistics.js']
 

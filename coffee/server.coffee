@@ -83,6 +83,12 @@ server.route
   config:
     handler: cabin.getCabin
     auth: true
+server.route
+  method: 'GET'
+  path: '/hytte/{id}/statistikk'
+  config:
+    handler: cabin.getStatistics
+    auth: true
 
 server.ext 'onPreResponse', (request, next) ->
   if request.path.substr(0, 21) is '/static/images/cabin/'

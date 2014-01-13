@@ -10,6 +10,7 @@
   <title>{{ title }}</title>
 
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+  <link href="//cdn.oesmith.co.uk/morris-0.4.3.min.css" rel="stylesheet">
   <link href="/static/css/main.css" rel="stylesheet">
 </head>
 <body>
@@ -23,7 +24,10 @@
       {{> footer}}
     </footer>
   </div>
-  <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+  <script src="//cdn.oesmith.co.uk/morris-0.4.3.min.js"></script>
+  {{#each scripts }}<script src="{{ . }}" type="text/javascript"></script>{{/each }}
 </body>
 </html>

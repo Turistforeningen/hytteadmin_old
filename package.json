@@ -33,6 +33,7 @@
     "request": "~2",
     "dnt-connect": "~1",
     "mocha": "~1",
-    "supervisor": "~0"
+    "supervisor": "~0",
+    "ga-report": "~1.0.0"
   }
 }
