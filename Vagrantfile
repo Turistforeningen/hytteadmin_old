@@ -32,6 +32,7 @@ NTB_API_KEY=`cat ./env/NTB_API_KEY`
 DNT_CONNECT=`cat ./env/DNT_CONNECT`
 GA_API_PASSWORD=`cat ./env/GA_API_PASSWORD`
 GA_API_USERNAME=`cat ./env/GA_API_USERNAME`
+DISQUS_PUBLIC_KEY=`cat ./env/DISQUS_PUBLIC_KEY`
 
 # Vagratnt Environment Varaibles
 echo "Setting environment variables..."
@@ -43,6 +44,7 @@ echo "export NTB_API_URL=http://api.nasjonalturbase.no/" >> /home/vagrant/.bashr
 echo "export DNT_CONNECT=$DNT_CONNECT"                   >> /home/vagrant/.bashrc
 echo "export GA_API_PASSWORD=$GA_API_PASSWORD"           >> /home/vagrant/.bashrc
 echo "export GA_API_USERNAME=$GA_API_USERNAME"           >> /home/vagrant/.bashrc
+echo "export DISQUS_PUBLIC_KEY=$DISQUS_PUBLIC_KEY"       >> /home/vagrant/.bashrc
 echo "export DOTCLOUD_CACHE_REDIS_HOST=localhost"        >> /home/vagrant/.bashrc
 echo "export DOTCLOUD_CACHE_REDIS_PORT=6379"             >> /home/vagrant/.bashrc
 echo "\ncd /vagrant"                                     >> /home/vagrant/.bashrc
