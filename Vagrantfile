@@ -8,7 +8,7 @@ $script = <<SCRIPT
 apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
 echo 'Updating and installing ubuntu packages...'
 apt-get update
-apt-get install -y build-essential git curl redis-server
+apt-get install -y build-essential git curl mongodb-10gen redis-server
 
 # NodeJS via NVM
 echo "Installing Node Version Manager..."
@@ -45,6 +45,7 @@ echo "export DNT_CONNECT=$DNT_CONNECT"                   >> /home/vagrant/.bashr
 echo "export GA_API_PASSWORD=$GA_API_PASSWORD"           >> /home/vagrant/.bashrc
 echo "export GA_API_USERNAME=$GA_API_USERNAME"           >> /home/vagrant/.bashrc
 echo "export DISQUS_PUBLIC_KEY=$DISQUS_PUBLIC_KEY"       >> /home/vagrant/.bashrc
+echo "export MONGO_URI=mongodb://localhost:27017/test"   >> /home/vagrant/.bashrc
 echo "export DOTCLOUD_CACHE_REDIS_HOST=localhost"        >> /home/vagrant/.bashrc
 echo "export DOTCLOUD_CACHE_REDIS_PORT=6379"             >> /home/vagrant/.bashrc
 echo "\ncd /vagrant"                                     >> /home/vagrant/.bashrc
