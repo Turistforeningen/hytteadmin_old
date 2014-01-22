@@ -105,8 +105,11 @@ server.ext 'onPreResponse', (request, next) ->
   next()
 
 if not module.parent
-  server.start () ->
-    console.log 'Server is running...'
+  require('./model/mongo').once 'ready', ->
+    console.log 'Database is open...'
+
+    server.start ->
+      console.log 'Server is running...'
 else
   module.exports = server
 
