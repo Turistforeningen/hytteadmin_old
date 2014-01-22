@@ -33,6 +33,7 @@ describe '/liste', ->
       done()
 
   it 'should display a list of cabins', (done) ->
+    @timeout(5000)
     server.inject method: 'GET', url: '/liste', headers: cookie, (res) ->
       assert.equal res.raw.res.statusCode, 200
       done()
