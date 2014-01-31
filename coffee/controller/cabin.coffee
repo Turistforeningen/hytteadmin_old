@@ -18,8 +18,38 @@ exports.getList = (request, reply) ->
 exports.getCabin = (request, reply) ->
   cabin.getCabin request.params.id, (err, data) ->
     return reply().redirect '/' if err
+
+    links = [
+      {
+        title: 'Fakta'
+        url: '#beskrivelse'
+        glyph: 'list-alt'
+      }
+      {
+        title: 'Kontaktinfo'
+        url: '#kontakt'
+        glyph: 'comment'
+      }
+      {
+        title: 'Åpningstider'
+        url: '#åpningstider'
+        glyph: 'time'
+      }
+      {
+        title: 'Senger'
+        url: '#senger'
+        glyph: 'home'
+      }
+      {
+        title: 'Bilder'
+        url: '#bilder'
+        glyph: 'picture'
+      }
+    ]
+
     reply.view 'cabin',
       site: site
+      links: links
       user: request.auth.credentials
       cabin: data
       title: 'Endre hytte'
