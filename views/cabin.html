@@ -28,8 +28,30 @@
     {{#formtext "beskrivelse" id 20}}{{{ cabin.beskrivelse }}}{{/formtext}}
   {{/formgroup}}
 
-  {{#formgroup "Adkomst sommer"}}
-    {{#formtext "adkomst_sommer" id 5}}{{{ cabin.adkomst.sommer }}}{{/formtext}}
+  <!-- Nav tabs -->
+  {{#formgroup "Adkomst"}}
+  <ul class="nav nav-tabs">
+    <li><a href="#gsommer" data-toggle="tab" class="active">Generell sommer</a></li>
+    <li><a href="#gvinter" data-toggle="tab">Generell vinter</a></li>
+    <li><a href="#ksommer" data-toggle="tab">Kollektiv sommer</a></li>
+    <li><a href="#kvinter" data-toggle="tab">Kollektiv vinter</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div class="tab-pane active" id="gsommer">
+      {{#formtext "adkomst.generell.sommer" id 5}}{{{ cabin.adkomst.sommer }}}{{/formtext}}
+    </div>
+    <div class="tab-pane" id="gvinter">
+      {{#formtext "adkomst.generell.vinter" id 5}}{{{ cabin.adkomst.vinter }}}{{/formtext}}
+    </div>
+    <div class="tab-pane" id="ksommer">
+      {{#formtext "adkomst.generell.sommer" id 5}}{{{ cabin.adkomst.sommer }}}{{/formtext}}
+    </div>
+    <div class="tab-pane" id="kvinter">
+      {{#formtext "adkomst.generell.vinter" id 5}}{{{ cabin.adkomst.vinter }}}{{/formtext}}
+    </div>
+  </div>
   {{/formgroup}}
 
   <h3 id="kontakt">Kontaktinfo</h3>
