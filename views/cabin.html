@@ -11,11 +11,15 @@
       <div class="input-group form-control-static">
         <span class="input-group-addon">{{ @index }}</span>
         {{#forminput "navn_alt[]" id "text" "Alternativt navn"}}{{ this }}{{/forminput}}
+        <span class="input-group-addon"><span class="glyphicon glyphicon-plus"></span></span>
+        <span class="input-group-addon"><span class="glyphicon glyphicon-minus"></span></span>
       </div>
     {{else}}
       <div class="input-group form-control-static">
         <span class="input-group-addon">0.</span>
         {{#forminput "navn_alt[]" id "text" "Alternativt navn"}}{{/forminput}}
+        <span class="input-group-addon"><span class="glyphicon glyphicon-plus"></span></span>
+        <span class="input-group-addon"><span class="glyphicon glyphicon-minus"></span></span>
       </div>
     {{/each}}
   {{/formgroup}}
