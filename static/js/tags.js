@@ -1,0 +1,1 @@
+<html><body>You are being <a href="https://raw.github.com/maxwells/bootstrap-tags/master/dist/js/bootstrap-tags.min.js">redirected</a>.</body></html>
