@@ -5,9 +5,9 @@
   "main": "coffee/server.coffee",
   "scripts": {
     "start": "supervisor -w 'coffee,views' -e 'coffee|html|js' -- coffee/server.coffee",
-    "test": "mocha -b -c --check-leaks test/suite.coffee -R progress -r coffee-script -w",
+    "test": "mocha -b -c --check-leaks test/suite.coffee -R progress --compilers coffee:coffee-script/register -w",
     "postinstall": "rm -rf src/* && coffee -o src/ -c coffee/",
-    "test-drone": "node_modules/.bin/mocha test/suite.coffee -R spec -r coffee-script"
+    "test-drone": "node_modules/.bin/mocha test/suite.coffee -R spec --compilers coffee:coffee-script/register"
   },
   "repository": {
     "type": "git",
