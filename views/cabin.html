@@ -2,10 +2,12 @@
 
   <h3 id="fakta"><span class="glyphicon glyphicon-list-alt"></span> Fakta</h3>
 
+  <!-- Navn -->
   {{#formgroup "Navn" 4}}
     {{#forminput "navn" id "text" "Hyttenavn"}}{{cabin.navn}}{{/forminput}}
   {{/formgroup}}
 
+  <!-- Navn Alt -->
   {{#formgroup "Alt. navn" 4}}
     {{#each cabin.navn_alt}}
       <div class="input-group form-control-static">
@@ -24,11 +26,12 @@
     {{/each}}
   {{/formgroup}}
 
+  <!-- Beskrivelse -->
   {{#formgroup "Beskrivelse"}}
     {{#formtext "beskrivelse" id 20}}{{{ cabin.beskrivelse }}}{{/formtext}}
   {{/formgroup}}
 
-  <!-- Nav tabs -->
+  <!-- Adkomst -->
   {{#formgroup "Adkomst"}}
   <ul class="nav nav-tabs">
     <li class="active"><a href="#gsommer" data-toggle="tab">Generell sommer</a></li>
@@ -37,7 +40,6 @@
     <li><a href="#kvinter" data-toggle="tab">Kollektiv vinter</a></li>
   </ul>
 
-  <!-- Tab panes -->
   <div class="tab-content">
     <div class="tab-pane active" id="gsommer">
       {{#formtext "adkomst.generell.sommer" id 5}}{{{ cabin.adkomst.sommer }}}{{/formtext}}
