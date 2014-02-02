@@ -2,6 +2,10 @@ body {
   padding-top: 60px;
 }
 
+form h3 {
+  padding-top: 60px;
+}
+
 .thumbnail .crop {
   height: 160px;
   overflow: hidden;
