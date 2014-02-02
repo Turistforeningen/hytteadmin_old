@@ -22,7 +22,7 @@ exports.getCabin = (request, reply) ->
     links = [
       {
         title: 'Fakta'
-        url: '#beskrivelse'
+        url: '#fakta'
         glyph: 'list-alt'
       }
       {
