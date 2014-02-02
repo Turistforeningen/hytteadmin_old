@@ -29,7 +29,7 @@
   "dependencies": {
     "coffee-script": "~1",
     "hapi": "git://github.com/spumko/hapi.git",
-    "handlebars": "~1",
+    "handlebars": "~1.2",
     "request": "~2",
     "dnt-connect": "~1",
     "mocha": "~1",
