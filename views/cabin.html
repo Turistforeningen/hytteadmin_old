@@ -59,7 +59,82 @@
   </div>
   {{/formgroup}}
 
-  <h3 id="kontakt">Kontaktinfo</h3>
+  <h3 id="kontakt"><span class="glyphicon glyphicon-comment"></span> Kontaktinfo</h3>
+
+  <div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#c0">I sesong</a>
+        </h4>
+      </div>
+      <div id="c0" class="panel-collapse collapse in">
+        <div class="panel-body">
+
+          <!-- Kontaktperson -->
+          {{#formgroup "Kontaktperson" 4}}
+            {{#forminput "privat.kontaktinfo.i_sesong.kontaktperson" id "text" "Kontaktperson"}}
+              {{cabin.privat.sherpa2_id}}
+            {{/forminput}}
+            {{#formhelp 6}}Navn på kontaktperson.{{/formhelp}}
+          {{/formgroup}}
+
+          <!-- Adresse -->
+          {{#formgroup "Adresse" 4}}
+            {{#forminput "privat.kontaktinfo.i_sesong.adresse" id "text" "Adresse"}}
+              {{privat.kontaktinfo.i_sesong.adresse}}
+            {{/forminput}}
+            {{#formhelp 6}}Postadresse med postnummer.{{/formhelp}}
+          {{/formgroup}}
+
+          <!-- Mobil -->
+          {{#formgroup "Mobiltelefon" 4}}
+            {{#forminput "privat.kontaktinfo.i_sesong.mobil" id "text" "Mobiltelefon"}}
+              {{privat.kontaktinfo.i_sesong.mobil}}
+            {{/forminput}}
+          {{/formgroup}}
+
+          <!-- Telefon -->
+          {{#formgroup "Telefon" 4}}
+            {{#forminput "privat.kontaktinfo.i_sesong.telefon" id "text" "Telefon"}}
+              {{privat.kontaktinfo.i_sesong.telefon}}
+            {{/forminput}}
+          {{/formgroup}}
+
+          <!-- Fax -->
+          {{#formgroup "Fax" 4}}
+            {{#forminput "privat.kontaktinfo.i_sesong.fax" id "text" "Fax"}}
+              {{privat.kontaktinfo.i_sesong.fax}}
+            {{/forminput}}
+          {{/formgroup}}
+
+          <!-- Epost -->
+          {{#formgroup "Epost" 4}}
+            {{#forminput "privat.kontaktinfo.i_sesong.epost" id "text" "Epost"}}
+              {{privat.kontaktinfo.i_sesong.epost}}
+            {{/forminput}}
+          {{/formgroup}}
+
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#c1">Utenom sesong</a>
+        </h4>
+      </div>
+      <div id="c1" class="panel-collapse collapse">
+        <div class="panel-body">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3 id="åpningstider"><span class="glyphicon glyphicon-time"></span> Åpningstider</h3>
+  <h3 id="senger"><span class="glyphicon glyphicon-home"></span> Senger</h3>
+  <h3 id="bilder"><span class="glyphicon glyphicon-picture"></span> Bilder</h3>
+  <h3 id="teknisk"><span class="glyphicon glyphicon-cog"></span> Teknisk</h3>
 
   <div class="form-group">
     <div class="col-sm-10 col-sm-offset-2">
